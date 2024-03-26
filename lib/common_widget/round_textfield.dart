@@ -44,8 +44,10 @@ class RoundTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(15)),
           child: TextField(
             controller: controller,
+            style: const TextStyle(color: Colors.white),
             decoration: const InputDecoration(
               focusedBorder: InputBorder.none,
+              contentPadding: EdgeInsets.only(left: 10),
               errorBorder: InputBorder.none,
               enabledBorder: InputBorder.none,
             ),
