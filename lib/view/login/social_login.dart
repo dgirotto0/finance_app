@@ -1,3 +1,4 @@
+import 'package:finance_app/view/login/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/secondary_boutton.dart';
@@ -14,7 +15,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: TColor.gray,
+     backgroundColor: TColor.gray,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -151,7 +152,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
               const SizedBox(
                 height: 25,
               ),
-              /*SecondaryButton(
+              SecondaryButton(
                 title: "Sign up with E-mail",
                 onPressed: () {
                   Navigator.push(
@@ -159,7 +160,7 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                       MaterialPageRoute(
                           builder: (context) => const SignUpView()));
                 },
-              ),*/
+              ),
               const SizedBox(
                 height: 20,
               ),

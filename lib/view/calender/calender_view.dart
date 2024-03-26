@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:calendar_agenda/calendar_agenda.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
@@ -17,7 +18,7 @@ class _CalenderViewState extends State<CalenderView> {
   CalendarAgendaController();
   late DateTime selectedDateNotAppBBar;
 
-  Random random = new Random();
+  Random random = Random();
 
   List subArr = [
     {"name": "Spotify", "icon": "assets/img/spotify_logo.png", "price": "5.99"},
@@ -79,7 +80,7 @@ class _CalenderViewState extends State<CalenderView> {
 
                               Row(
                                 children: [
-                                  Spacer(),
+                                  const Spacer(),
                                   IconButton(
                                       onPressed: () {
                                         Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsView() ) );

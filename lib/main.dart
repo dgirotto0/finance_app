@@ -1,4 +1,4 @@
-import 'package:finance_app/view/main_tab/main_tab_view.dart';
+import 'package:finance_app/view/login/welcome_view.dart';
 import 'package:flutter/material.dart';
 import 'common/color_extension.dart';
 
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: false,
       ),
-      home: const MainTabView(),
+      home: const WelcomeView(),
     );
   }
 }

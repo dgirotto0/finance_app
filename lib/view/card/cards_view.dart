@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:card_swiper/card_swiper.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import '../../common/color_extension.dart';
 import '../settings/settings_view.dart';
@@ -28,22 +30,22 @@ class _CardsViewState extends State<CardsView> {
 
   List carArr = [
     {
-      "name": "code for any1",
+      "name": "Amalia Meilon",
       "number": "**** **** **** 2197",
       "month_year": "08/27"
     },
     {
-      "name": "code for any2",
+      "name": "Gabriel Jeyson",
       "number": "**** **** **** 2198",
       "month_year": "09/27"
     },
     {
-      "name": "code for any3",
+      "name": "Cristina Oliveira",
       "number": "**** **** **** 2297",
       "month_year": "07/27"
     },
     {
-      "name": "code for any4",
+      "name": "Eduardo Peixe",
       "number": "**** **** **** 2397",
       "month_year": "05/27"
     },

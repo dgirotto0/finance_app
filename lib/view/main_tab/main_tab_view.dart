@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../common/color_extension.dart';
 import '../add_subscription/add_subscription_view.dart';
-import '../calender_view/calender_view.dart';
-import '../cards/cards_view.dart';
+import '../calender/calender_view.dart';
+import '../card/cards_view.dart';
 import '../home/home_view.dart';
 import '../spending_budgets/spending_budgets_view.dart';
 
@@ -89,7 +89,7 @@ class _MainTabViewState extends State<MainTabView> {
                               onPressed: () {
                                 setState(() {
                                   selectTab = 2;
-                                  currentTabView = CalenderView();
+                                  currentTabView = const CalenderView();
                                 });
                               },
                               icon: Image.asset(
@@ -105,7 +105,7 @@ class _MainTabViewState extends State<MainTabView> {
                               onPressed: () {
                                 setState(() {
                                   selectTab = 3;
-                                  currentTabView = CardsView();
+                                  currentTabView = const CardsView();
                                 });
                               },
                               icon: Image.asset(

@@ -66,7 +66,7 @@ class _SettingsViewState extends State<SettingsView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Code For Any",
+                  "Daniel Girotto",
                   style: TextStyle(
                       color: TColor.white,
                       fontSize: 20,
@@ -81,7 +81,7 @@ class _SettingsViewState extends State<SettingsView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "codeforany@gmail.com",
+                  "dgirotto00@gmail.com",
                   style: TextStyle(
                       color: TColor.gray30,
                       fontSize: 12,
@@ -139,7 +139,7 @@ class _SettingsViewState extends State<SettingsView> {
                     ),
                     child: Column(
                       children: [
-                        IconItemRow(
+                        const IconItemRow(
                           title: "Security",
                           icon: "assets/img/face_id.png",
                           value: "FaceID",
@@ -177,7 +177,7 @@ class _SettingsViewState extends State<SettingsView> {
                       color: TColor.gray60.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: [
                         IconItemRow(
                           title: "Sorting",
@@ -220,7 +220,7 @@ class _SettingsViewState extends State<SettingsView> {
                       color: TColor.gray60.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(16),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: [
                         IconItemRow(
                           title: "App icon",

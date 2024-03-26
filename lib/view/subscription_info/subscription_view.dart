@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/color_extension.dart';
@@ -175,11 +176,11 @@ class _SubscriptionInfoViewState extends State<SubscriptionInfoView> {
                         dashPattern: const [5, 10],
                         padding: EdgeInsets.zero,
                         strokeWidth: 1,
-                        child: SizedBox(
-                          height: 0,
-                        ),
                         radius: const Radius.circular(16),
                         color: TColor.gray,
+                        child: const SizedBox(
+                          height: 0,
+                        ),
                       )),
                   Container(
                     width: 30,
