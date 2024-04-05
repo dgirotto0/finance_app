@@ -1,7 +1,8 @@
 import 'package:finance_app/login/sign_up_view.dart';
+import 'package:finance_app/login/social_login.dart';
 import 'package:finance_app/widgets/bottomnavigationbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/primary_button.dart';
 import '../../common_widget/round_textfield.dart';
@@ -122,18 +123,25 @@ class _SignInViewState extends State<SignInView> {
                 onTap: () async {
                   try {
                     final user = await UserController.loginWithGoogle();
-                    if(user != null && mounted){
+                    if (user != null && mounted) {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => const Bottom())
-                      );
+                        builder: (context) => const Bottom(),
+                      ));
                     }
-                  } on FirebaseAuthException catch (error) {
+                  } on PlatformException catch (error) { // Alterado para PlatformException
                     print(error.message);
-                    ScaffoldMessenger.of(context).showSnackBar((SnackBar(
-                      content: Text(
-                        error.message ?? "Something went wrong",
-                      ),
-                    )));
+                    if (error.code == 'network_error') { // Verifica se o código do erro é network_error
+                      showDialog(
+                        context: context,
+                        builder: (context) => ConnectivityErrorDialog(),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                          error.message ?? "Something went wrong",
+                        ),
+                      ));
+                    }
                   } catch (error) {
                     print(error);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -1,8 +1,7 @@
-import 'package:finance_app/Screens/home.dart';
 import 'package:finance_app/login/sign_up_view.dart';
 import 'package:finance_app/widgets/bottomnavigationbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../../common/color_extension.dart';
 import '../../common_widget/secondary_boutton.dart';
 import '../controllers/user_controller.dart';
@@ -12,6 +11,42 @@ class SocialLoginView extends StatefulWidget {
 
   @override
   State<SocialLoginView> createState() => _SocialLoginViewState();
+}
+
+class ConnectivityErrorDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Row(
+        children: [
+          Icon(
+            Icons.error_outline,
+            color: Colors.deepPurple, // Cor de ícone de falha de conexão
+          ),
+          SizedBox(width: 10),
+          Text(
+            'Connection error',
+            style: TextStyle(color: Colors.deepPurple), // Cor do título
+          ),
+        ],
+      ),
+      content: const Text(
+        'We were unable to establish an internet connection. Please check your connection and try again.',
+        style: TextStyle(color: Colors.black87), // Cor do texto
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text(
+            'OK',
+            style: TextStyle(color: Colors.deepPurple), // Cor do botão
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class _SocialLoginViewState extends State<SocialLoginView> {
@@ -69,18 +104,25 @@ class _SocialLoginViewState extends State<SocialLoginView> {
                 onTap: () async {
                   try {
                     final user = await UserController.loginWithGoogle();
-                    if(user != null && mounted){
+                    if (user != null && mounted) {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const Bottom())
-                      );
+                        builder: (context) => const Bottom(),
+                      ));
                     }
-                  } on FirebaseAuthException catch (error) {
+                  } on PlatformException catch (error) { // Alterado para PlatformException
                     print(error.message);
-                    ScaffoldMessenger.of(context).showSnackBar((SnackBar(
-                      content: Text(
-                        error.message ?? "Something went wrong",
-                      ),
-                    )));
+                    if (error.code == 'network_error') { // Verifica se o código do erro é network_error
+                      showDialog(
+                        context: context,
+                        builder: (context) => ConnectivityErrorDialog(),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                          error.message ?? "Something went wrong",
+                        ),
+                      ));
+                    }
                   } catch (error) {
                     print(error);
                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
