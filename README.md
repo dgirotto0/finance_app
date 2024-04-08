@@ -63,7 +63,6 @@ dev_dependencies:
 
 ## 🎨 Screenshots
 
-```html
 <div style="display:flex; justify-content:center;">
     <img src="./screenshots/welcome_screen.png" alt="Welcome Page" width="250">
     <img src="./screenshots/social_screen.png" alt="Social Login Page" width="250">
@@ -73,7 +72,6 @@ dev_dependencies:
     <img src="./screenshots/statistics_screen.png" alt="Statistics Page" width="250">
     <img src="./screenshots/add_screen.png" alt="Add Page" width="250">
 </div>
-```
 
 ## 💡 To-Do List
 
